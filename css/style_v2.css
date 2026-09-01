@@ -3426,7 +3426,7 @@ body, a, button {
     display: flex;
     flex-wrap: wrap;
     gap: 0.4vw;
-    margin-bottom: 3vh;
+    margin-bottom: 4.5vh;
 }
 .master-skills span {
     background: rgba(0,0,0,0.06);
@@ -3560,7 +3560,7 @@ body, a, button {
     display: flex;
     flex-wrap: wrap;
     gap: 0.4vw;
-    margin-bottom: 3vh;
+    margin-bottom: 4.5vh;
 }
 .master-skills span {
     background: rgba(0,0,0,0.06);
@@ -4205,6 +4205,7 @@ body, a, button {
 .popup-track::-webkit-scrollbar {
     display: none;
 }
+
 
 
 
