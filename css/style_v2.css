@@ -3391,7 +3391,7 @@ body, a, button {
     object-position: center 20%;
     border-radius: 40px 0 0 40px;
     display: block;
-    transform: none !important;
+    transform: scale(0.92) !important;
 }
 
 /* 2. Middle Column (Intro) */
@@ -3532,7 +3532,7 @@ body, a, button {
     object-position: center 20%;
     border-radius: 40px 0 0 40px;
     display: block;
-    transform: none !important;
+    transform: scale(0.92) !important;
 }
 
 /* 2. Middle Column (Intro) */
@@ -4308,6 +4308,7 @@ body, a, button {
     visibility: visible;
     transform: translateX(-50%) translateY(0);
 }
+
 
 
 
