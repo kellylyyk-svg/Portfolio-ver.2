@@ -3425,16 +3425,17 @@ body, a, button {
 .master-skills {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.8vw;
+    gap: 0.4vw;
     margin-bottom: 3vh;
 }
 .master-skills span {
     background: rgba(0,0,0,0.06);
     color: #222 !important;
-    padding: 0.8vh 1vw;
-    border-radius: 12px;
-    font-size: clamp(0.85rem, 1.4vh, 1rem);
+    padding: 0.55vh 0.7vw;
+    border-radius: 10px;
+    font-size: clamp(0.78rem, 1.25vh, 0.92rem);
     font-weight: 600;
+    white-space: nowrap;
 }
 .master-skills span.ai-glow {
     background: rgba(155, 81, 224, 0.1);
@@ -3558,16 +3559,17 @@ body, a, button {
 .master-skills {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.8vw;
+    gap: 0.4vw;
     margin-bottom: 3vh;
 }
 .master-skills span {
     background: rgba(0,0,0,0.06);
     color: #222 !important;
-    padding: 0.8vh 1vw;
-    border-radius: 12px;
-    font-size: clamp(0.85rem, 1.4vh, 1rem);
+    padding: 0.55vh 0.7vw;
+    border-radius: 10px;
+    font-size: clamp(0.78rem, 1.25vh, 0.92rem);
     font-weight: 600;
+    white-space: nowrap;
 }
 .master-skills span.ai-glow {
     background: rgba(155, 81, 224, 0.1);
@@ -4203,6 +4205,7 @@ body, a, button {
 .popup-track::-webkit-scrollbar {
     display: none;
 }
+
 
 
 
