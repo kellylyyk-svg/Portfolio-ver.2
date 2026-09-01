@@ -3923,9 +3923,24 @@ body, a, button {
     .intro-header h2 {
         font-size: 2.6rem !important;
     }
+    .timeline-line,
+    .timeline-dot {
+        display: none !important;
+    }
     .intro-details.timeline-style {
+        padding-left: 0 !important;
         flex-direction: column !important;
-        gap: 2rem !important;
+        gap: 1.8rem !important;
+        max-width: 100% !important;
+    }
+    .intro-item {
+        padding-left: 0 !important;
+        margin-bottom: 0 !important;
+        text-align: center !important;
+    }
+    .intro-item h4 {
+        font-size: 1.25rem !important;
+        margin-bottom: 0.5rem !important;
     }
     .sticky-mobile-container {
         display: flex !important;
@@ -4173,35 +4188,40 @@ body, a, button {
 }
 
 
-/* Timeline & Popup Drag Improvements */
+/* Timeline & Desktop Styling */
 .intro-details.timeline-style {
     position: relative;
-    padding-left: 2rem;
-}
-.intro-item h4 {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-size: 1.3rem;
-    color: var(--accent-color);
-    margin-bottom: 0.5rem;
-}
-.intro-item .timeline-dot {
-    width: 9px;
-    height: 9px;
-    background: var(--accent-color);
-    border-radius: 50%;
-    display: inline-block;
-    flex-shrink: 0;
-    box-shadow: 0 0 8px rgba(20, 51, 116, 0.4);
+    padding-left: 2.5rem;
+    max-width: 650px;
+    margin: 0 auto;
 }
 .timeline-line {
     position: absolute;
-    top: 15px;
+    top: 10px;
     left: 4px;
     bottom: 25px;
     width: 1px;
     background: rgba(20, 51, 116, 0.2);
+}
+.intro-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+.intro-item .timeline-dot {
+    position: absolute;
+    left: -2.5rem;
+    top: 6px;
+    width: 9px;
+    height: 9px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(20, 51, 116, 0.4);
+    display: inline-block;
+}
+.intro-item h4 {
+    font-size: 1.3rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
 }
 
 .int-popup-right {
@@ -4216,3 +4236,4 @@ body, a, button {
 .popup-track::-webkit-scrollbar {
     display: none;
 }
+
