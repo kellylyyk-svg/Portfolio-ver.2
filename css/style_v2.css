@@ -1145,9 +1145,9 @@ h3.int-detail-title {
     text-overflow: ellipsis;
 }
 
-/* 2. Popup & Poster (GSAP Pinning) */
+/* 2. Popup & Poster (GSAP Pinning & Fluid Scaling) */
 .int-popup-section {
-    background: var(--accent-color); /* ?�인???�상?�로 변�?*/
+    background: var(--accent-color);
     color: #fff;
     overflow: hidden;
 }
@@ -1158,56 +1158,65 @@ h3.int-detail-title {
     align-items: center;
 }
 .int-popup-left {
-    width: 35%;
-    padding: 0 5vw;
+    width: clamp(280px, 30vw, 440px);
+    padding: 0 4vw 0 5vw;
     flex-shrink: 0;
 }
 h3.popup-title { 
-    font-size: 3.5rem; 
-    margin-bottom: 1rem; 
+    font-size: clamp(2.8rem, 4.2vw, 4.5rem); 
+    margin-bottom: 1.2rem; 
     font-weight: 700; 
     letter-spacing: -1px; 
-    line-height: 1.2; 
+    line-height: 1.15; 
     text-align: left;
+    color: #ffffff !important;
 }
 .popup-desc {
-    font-family: var(--font-heading);
-    font-size: 1.2rem; 
-    color: #888; 
-    margin-bottom: 4rem; 
-    line-height: 1.6; 
-    max-width: 400px; 
+    font-size: clamp(1rem, 1.2vw, 1.3rem); 
+    color: rgba(255, 255, 255, 0.8) !important; 
+    margin-bottom: 2rem; 
+    line-height: 1.7; 
+    max-width: 440px; 
     text-align: left;
+    word-break: keep-all;
 }
 .int-popup-right {
-    width: 65%;
-    overflow: visible; /* To allow elements to flow out to the right */
+    flex: 1;
+    overflow: visible;
 }
 .popup-track {
     display: flex;
     width: max-content;
-    gap: 4rem;
-    padding-right: 5vw;
+    gap: clamp(2.5rem, 3.5vw, 4.5rem);
+    padding-right: 6vw;
+    align-items: center;
 }
 .popup-item {
     flex-shrink: 0;
-    width: 450px;
-    height: 650px;
-    background: #333;
+    /* Responsive height & width: scales proportionally with viewport height and width without pixelation */
+    height: clamp(520px, 72vh, 800px);
+    width: auto;
+    aspect-ratio: 1 / 1.45;
+    background: #1e1e1e;
     cursor: pointer;
     overflow: hidden;
-    border-radius: 4px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    border-radius: 12px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
 }
 .popup-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    pointer-events: none; /* 브라?��? 기본 ?��?지 ?�래�?방�? */
+    pointer-events: none;
     transition: transform 0.5s ease;
 }
+.popup-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 35px 80px rgba(0,0,0,0.5);
+}
 .popup-item:hover img {
-    transform: scale(1.05);
+    transform: scale(1.04);
 }
 
 /* 3. Promotional Banners (Double Infinite Marquee) */
@@ -4271,3 +4280,4 @@ body, a, button {
     visibility: visible;
     transform: translateX(-50%) translateY(0);
 }
+
