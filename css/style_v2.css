@@ -1158,25 +1158,27 @@ h3.int-detail-title {
     align-items: center;
 }
 .int-popup-left {
-    width: clamp(280px, 30vw, 440px);
-    padding: 0 4vw 0 5vw;
+    width: clamp(340px, 28vw, 480px);
+    min-width: 320px;
+    padding: 0 3vw 0 5vw;
     flex-shrink: 0;
 }
 h3.popup-title { 
-    font-size: clamp(2.8rem, 4.2vw, 4.5rem); 
+    font-size: clamp(2.4rem, 3.2vw, 3.8rem); 
     margin-bottom: 1.2rem; 
     font-weight: 700; 
     letter-spacing: -1px; 
-    line-height: 1.15; 
+    line-height: 1.2; 
     text-align: left;
+    white-space: nowrap;
     color: #ffffff !important;
 }
 .popup-desc {
-    font-size: clamp(1rem, 1.2vw, 1.3rem); 
+    font-size: clamp(0.95rem, 1.1vw, 1.15rem); 
     color: rgba(255, 255, 255, 0.8) !important; 
     margin-bottom: 2rem; 
-    line-height: 1.7; 
-    max-width: 440px; 
+    line-height: 1.65; 
+    max-width: 360px; 
     text-align: left;
     word-break: keep-all;
 }
@@ -4280,4 +4282,5 @@ body, a, button {
     visibility: visible;
     transform: translateX(-50%) translateY(0);
 }
+
 
