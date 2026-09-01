@@ -3510,69 +3510,7 @@ body, a, button {
     display: flex;
     gap: 1.5vw;
     margin-bottom: 1.5vh;
-    grid-column: 1 / 2 !important;
-    grid-row: 1 / 3 !important;
 }
-
-/* 2. Profile Intro (Col 2-3, Row 1) */
-.cell-profile {
-    grid-column: 2 / 4 !important;
-    grid-row: 1 / 2 !important;
-    border-right: none !important; /* Rightmost */
-}
-
-/* 3. Skills (Col 2, Row 2) */
-.cell-character {
-    grid-column: 2 / 3 !important;
-    grid-row: 2 / 3 !important;
-}
-
-/* 4. Experience (Col 3, Row 2-3) */
-.cell-experience {
-    grid-column: 3 / 4 !important;
-    grid-row: 2 / 4 !important;
-    border-right: none !important; /* Rightmost */
-    padding: 0 !important; /* Reset padding for inner divs */
-}
-
-/* 5. Contact (Col 1, Row 3) */
-.cell-contact {
-    grid-column: 1 / 2 !important;
-    grid-row: 3 / 4 !important;
-    border-bottom: none !important; /* Bottom-most */
-}
-
-/* 6. Education & Awards (Col 2, Row 3) */
-.cell-awards {
-    grid-column: 2 / 3 !important;
-    grid-row: 3 / 4 !important;
-    border-bottom: none !important; /* Bottom-most */
-    padding: 0 !important; /* Reset padding for inner divs */
-}
-
-/* Inner divs of experience and awards that had internal padding/borders */
-.cell-experience > div, .cell-awards > div {
-    padding: 1.5rem 2.5rem !important;
-}
-.cell-experience > div:first-child, .cell-awards > div:first-child {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-}
-
-/* Mobile responsive override */
-@media (max-width: 1024px) {
-    .about-section { height: auto; overflow: visible; }
-    .about-wire-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        height: auto;
-    }
-    .about-wire-grid .wire-cell {
-        border-right: none !important;
-    }
-}
-
-
-
 
 /* =========================================
    SINGLE BIG GLASS CARD (1-SCREEN FIT)
@@ -3788,3 +3726,372 @@ body, a, button {
 
 
 
+
+
+/* ==========================================================================
+   📱 COMPREHENSIVE RESPONSIVE STYLES (TABLET & MOBILE)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    /* 1. Global Container */
+    .container {
+        padding: 0 5vw;
+    }
+
+    /* 2. About Me Section - Expanded for Scrollable Mobile/Tablet View */
+    .single-glass-section {
+        height: auto !important;
+        min-height: 100vh;
+        padding: 6rem 5vw 4rem 5vw !important;
+        overflow: visible !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    .glass-master-card {
+        width: 100% !important;
+        max-width: 720px !important;
+        height: auto !important;
+        max-height: none !important;
+        margin: 0 auto;
+        flex-direction: column !important;
+        overflow: visible !important;
+        border-radius: 28px !important;
+    }
+    .image-col {
+        width: 100% !important;
+        height: 320px !important;
+        border-radius: 28px 28px 0 0 !important;
+        padding: 2rem 0 !important;
+    }
+    .image-col img {
+        width: auto !important;
+        max-width: 80% !important;
+        height: 100% !important;
+        object-fit: contain !important;
+    }
+    .middle-col {
+        border-right: none !important;
+        border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+        padding: 2.5rem 2rem !important;
+    }
+    .right-col {
+        padding: 2.5rem 2rem !important;
+        gap: 2rem;
+    }
+
+    /* 3. Featured Case Studies */
+    .case-study-item {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem !important;
+    }
+    .case-study-item.reverse {
+        direction: ltr !important;
+    }
+
+    /* 4. Archives Grid */
+    .archive-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 2rem !important;
+    }
+
+    /* 5. Detail Pages */
+    .int-detail-gallery {
+        flex-direction: column !important;
+        gap: 2rem !important;
+    }
+    .int-detail-item {
+        flex: none !important;
+        width: 100% !important;
+    }
+    .int-detail-item img {
+        height: 420px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* 1. Interactive Header on Mobile */
+    .header {
+        transform: translateY(calc(-100% + 14px));
+    }
+    .header-indicator {
+        padding: 0.45rem 1.4rem 0.55rem 1.4rem;
+        border-radius: 0 0 18px 18px;
+    }
+    .header:hover,
+    .header:active,
+    .header.is-open {
+        transform: translateY(0);
+    }
+    .header-inner {
+        flex-direction: column;
+        gap: 1.2rem;
+        padding: 1.2rem 5vw;
+        max-height: 85vh;
+        overflow-y: auto;
+    }
+    .gnb {
+        flex-direction: column;
+        gap: 0.8rem;
+        width: 100%;
+        text-align: center;
+    }
+    .nav-item {
+        padding-bottom: 0;
+        width: 100%;
+    }
+    .nav-item > a {
+        font-size: 0.95rem !important;
+        padding: 0.6rem 0;
+        display: block;
+    }
+    .nav-dropdown {
+        position: static !important;
+        transform: none !important;
+        width: 100% !important;
+        box-shadow: none !important;
+        background: rgba(85, 63, 201, 0.05) !important;
+        border: 1px solid rgba(85, 63, 201, 0.1) !important;
+        border-radius: 12px;
+        padding: 0.5rem;
+        margin-top: 0.4rem;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: all !important;
+        display: flex;
+    }
+    .nav-dropdown a {
+        padding: 0.5rem 1rem !important;
+        text-align: center;
+    }
+
+    /* 2. Hero Section Typography */
+    .collage-hero {
+        padding: 0 5vw;
+    }
+    .text-portfolio {
+        width: 92vw !important;
+    }
+    .text-name {
+        width: 32vw !important;
+        top: 42% !important;
+        left: 20% !important;
+    }
+    .text-designer {
+        width: 25vw !important;
+        top: 62% !important;
+        right: 12% !important;
+    }
+    .butterfly-1 {
+        width: 30vw !important;
+    }
+    .butterfly-2 {
+        width: 18vw !important;
+    }
+    .scroll-indicator {
+        bottom: 25px;
+        font-size: 0.75rem;
+    }
+
+    /* 3. About Me Section */
+    .master-title {
+        font-size: 2.8rem !important;
+    }
+    .master-subtitle {
+        font-size: 1.4rem !important;
+    }
+    .master-intro {
+        font-size: 1rem !important;
+    }
+    .image-col {
+        height: 240px !important;
+    }
+    .image-col img {
+        max-width: 75% !important;
+    }
+
+    /* 4. Web App (Horizontal Section vertically stacked on mobile) */
+    .section-horizontal {
+        height: auto !important;
+        overflow: visible !important;
+        padding: 4rem 0 !important;
+        display: block !important;
+    }
+    .horizontal-container {
+        width: 100% !important;
+        height: auto !important;
+        flex-direction: column !important;
+        display: block !important;
+    }
+    .horizontal-panel {
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        padding: 3rem 5vw !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    .horizontal-panel.intro-panel {
+        flex-direction: column-reverse !important;
+        gap: 2rem !important;
+    }
+    .intro-text, .intro-image, .text-content, .text-image {
+        flex: none !important;
+        width: 100% !important;
+        text-align: center;
+    }
+    .intro-image img {
+        width: 100% !important;
+        max-height: 45vh !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+        object-position: center !important;
+    }
+    .mockup-panel {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 1.5rem !important;
+    }
+    .float-img {
+        position: relative !important;
+        width: 100% !important;
+        max-width: 380px !important;
+        top: auto !important; left: auto !important; right: auto !important; bottom: auto !important;
+        transform: none !important;
+        margin: 0 auto;
+    }
+    .text-image {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        gap: 0.5rem !important;
+        margin-top: 1.5rem;
+    }
+    .text-image img {
+        width: 31% !important;
+        max-width: 31% !important;
+        height: auto !important;
+        max-height: 35vh !important;
+        transform: none !important;
+    }
+
+    /* 5. Mobile App (Family Space) */
+    .mobile-section-intro {
+        padding: 5rem 5vw 3rem 5vw !important;
+    }
+    .intro-header h2 {
+        font-size: 2.6rem !important;
+    }
+    .intro-details.timeline-style {
+        flex-direction: column !important;
+        gap: 2rem !important;
+    }
+    .sticky-mobile-container {
+        flex-direction: column !important;
+    }
+    .mobile-mockup-wrapper {
+        position: relative !important;
+        top: auto !important;
+        height: auto !important;
+        padding: 2rem 0 !important;
+        z-index: 1 !important;
+        opacity: 1 !important;
+    }
+    .device-frame {
+        width: 240px !important;
+        height: 480px !important;
+        max-width: 80vw !important;
+        border-width: 8px !important;
+        border-radius: 28px !important;
+        margin: 0 auto;
+    }
+    .mobile-text-wrapper {
+        padding: 2rem 5vw !important;
+    }
+    .mobile-step {
+        height: auto !important;
+        min-height: auto !important;
+        padding: 2rem 0 3rem 0 !important;
+        text-align: center;
+    }
+
+    /* 6. Case Studies & Archives */
+    .section-casestudy {
+        padding: 4rem 0 !important;
+    }
+    .case-header h3 {
+        font-size: 2.2rem !important;
+    }
+    .real-monitor-mockup {
+        width: 100% !important;
+    }
+    .archive-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    /* 7. Graphics Section (Popup, Banners, Detail Pages) */
+    .section-others {
+        padding: 4rem 0 !important;
+    }
+    .int-popup-container {
+        flex-direction: column !important;
+        height: auto !important;
+        padding: 2rem 0 !important;
+    }
+    .int-popup-left {
+        width: 100% !important;
+        padding: 0 5vw !important;
+        margin-bottom: 1.5rem !important;
+        text-align: center;
+    }
+    .popup-track {
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        padding: 0 5vw 1.5rem 5vw !important;
+        gap: 1rem !important;
+        width: 100% !important;
+        scrollbar-width: none;
+    }
+    .popup-track::-webkit-scrollbar {
+        display: none;
+    }
+    .popup-item {
+        width: 240px !important;
+        height: 350px !important;
+        flex-shrink: 0 !important;
+    }
+    .int-detail-item img {
+        height: 300px !important;
+    }
+
+    /* 8. Contact Section */
+    .contact-section {
+        padding: 5rem 5vw 3rem 5vw !important;
+        min-height: auto !important;
+    }
+    .contact-title {
+        font-size: 2.4rem !important;
+        margin-bottom: 1.2rem !important;
+    }
+    .contact-desc {
+        font-size: 0.95rem !important;
+        margin-bottom: 2rem !important;
+    }
+    .contact-email {
+        font-size: 1.2rem !important;
+        word-break: break-all !important;
+        margin-bottom: 3rem !important;
+    }
+    .contact-footer {
+        flex-direction: column-reverse !important;
+        gap: 1.5rem !important;
+        text-align: center;
+    }
+    .contact-footer .footer-right {
+        justify-content: center;
+        gap: 1.5rem;
+    }
+}
