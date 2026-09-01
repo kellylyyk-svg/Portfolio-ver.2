@@ -3373,15 +3373,16 @@ body, a, button {
 /* 1. Image Column */
 .image-col {
     flex: 0.95;
+    background: #143374 !important; /* Deep Navy Background */
     padding: 0 !important;
     margin: 0 !important;
     position: relative;
     border-radius: 40px 0 0 40px;
     overflow: hidden;
-    background: transparent !important;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: inset -10px 0 20px rgba(0,0,0,0.1);
 }
 .image-col img {
     width: 100%;
@@ -3513,15 +3514,16 @@ body, a, button {
 /* 1. Image Column */
 .image-col {
     flex: 0.95;
+    background: #143374 !important; /* Deep Navy Background */
     padding: 0 !important;
     margin: 0 !important;
     position: relative;
     border-radius: 40px 0 0 40px;
     overflow: hidden;
-    background: transparent !important;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: inset -10px 0 20px rgba(0,0,0,0.1);
 }
 .image-col img {
     width: 100%;
@@ -3729,6 +3731,7 @@ body, a, button {
     .image-col {
         width: 100% !important;
         height: 360px !important;
+        background: #143374 !important;
         border-radius: 28px 28px 0 0 !important;
         padding: 0 !important;
         overflow: hidden !important;
@@ -3877,6 +3880,7 @@ body, a, button {
     }
     .image-col {
         height: 290px !important;
+        background: #143374 !important;
         padding: 0 !important;
         overflow: hidden !important;
     }
@@ -4304,6 +4308,7 @@ body, a, button {
     visibility: visible;
     transform: translateX(-50%) translateY(0);
 }
+
 
 
 
