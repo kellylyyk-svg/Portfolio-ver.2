@@ -513,17 +513,14 @@ document.addEventListener("DOMContentLoaded", () => {
    ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
     const dot = document.querySelector('.cursor-dot');
-
-    // Follow mouse smoothly using GSAP
-    window.addEventListener('mousemove', (e) => {
-        if (dot) {
-            gsap.to(dot, {
-                x: e.clientX,
-                y: e.clientY,
-                duration: 0
-            });
-        }
-    });
+    if (dot) {
+        const setX = gsap.quickSetter(dot, "x", "px");
+        const setY = gsap.quickSetter(dot, "y", "px");
+        window.addEventListener('mousemove', (e) => {
+            setX(e.clientX);
+            setY(e.clientY);
+        }, { passive: true });
+    }
 
     // Hover effects
     const interactables = document.querySelectorAll('a, button, .interactive, .work-item, .category-card');
@@ -536,6 +533,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
 
 
 

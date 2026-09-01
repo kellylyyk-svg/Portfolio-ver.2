@@ -1744,17 +1744,37 @@ h3.banner-title {
     background: #fff;
     container-type: size; /* ?�크�?계산???�한 컨테?�너 ?�이�?쿼리 */
 }
+.real-monitor-mockup {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    transform: translateZ(0);
+    contain: layout;
+}
+.mockup-screen {
+    position: absolute;
+    top: 3.5%;
+    left: 3.5%;
+    width: 93%;
+    height: 67.5%;
+    z-index: 1;
+    overflow: hidden;
+    background: #fff;
+    container-type: size;
+    transform: translateZ(0);
+}
 .case-hero .hover-scroll img {
     width: 100%;
-    height: auto; /* ?�연?�러???�이 ?��? */
+    height: auto;
     display: block;
-    transform: translateY(0);
-    transition: transform 6s cubic-bezier(0.25, 1, 0.5, 1); /* 부?�러???�징 */
-    will-change: transform; /* GPU 가???�성???�트 */
+    transform: translate3d(0, 0, 0);
+    transition: transform 5s cubic-bezier(0.25, 1, 0.5, 1);
+    backface-visibility: hidden;
 }
 .case-hero:hover .hover-scroll img {
-    /* ?��?지 ?�단??컨테?�너 ?�단??맞닿?�록 ?�크�?*/
-    transform: translateY(calc(-100% + 100cqh));
+    will-change: transform;
+    transform: translate3d(0, calc(-100% + 100cqh), 0);
 }
 
 .case-details {
@@ -4308,6 +4328,7 @@ body, a, button {
     visibility: visible;
     transform: translateX(-50%) translateY(0);
 }
+
 
 
 
