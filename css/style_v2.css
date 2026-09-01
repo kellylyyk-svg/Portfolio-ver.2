@@ -73,10 +73,7 @@ html {
 }
 
 body {
-    /* Huge linear gradient down the whole page */
-    background: linear-gradient(180deg, var(--bg-color-top) 0%, var(--bg-color-mid) 40%, var(--bg-color-bottom) 100%);
-    background-attachment: scroll;
-    color: var(--text-primary); /* Default for top */
+    word-break: keep-all;
     font-family: var(--font-body);
     line-height: 1.6;
     overflow-x: hidden;
@@ -4173,4 +4170,49 @@ body, a, button {
         justify-content: center;
         gap: 1.5rem;
     }
+}
+
+
+/* Timeline & Popup Drag Improvements */
+.intro-details.timeline-style {
+    position: relative;
+    padding-left: 2rem;
+}
+.intro-item h4 {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.3rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+.intro-item .timeline-dot {
+    width: 9px;
+    height: 9px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+    box-shadow: 0 0 8px rgba(20, 51, 116, 0.4);
+}
+.timeline-line {
+    position: absolute;
+    top: 15px;
+    left: 4px;
+    bottom: 25px;
+    width: 1px;
+    background: rgba(20, 51, 116, 0.2);
+}
+
+.int-popup-right {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.int-popup-right::-webkit-scrollbar,
+.popup-track::-webkit-scrollbar {
+    display: none;
 }

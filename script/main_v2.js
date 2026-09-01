@@ -241,23 +241,31 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // --- 5.7 Graphics: Drag to Scroll (Reusable) ---
+        // --- 5.7 Graphics: Drag to Scroll (Mouse & Touch) ---
         function enableDragScroll(slider) {
+            if (!slider) return;
             let isDown = false;
             let startX;
             let scrollLeft;
+            let isMoved = false;
+
+            slider.style.cursor = 'grab';
 
             slider.addEventListener('mousedown', (e) => {
                 isDown = true;
+                isMoved = false;
                 slider.style.cursor = 'grabbing';
                 startX = e.pageX - slider.offsetLeft;
                 scrollLeft = slider.scrollLeft;
             });
-            slider.addEventListener('mouseleave', () => {
-                isDown = false;
-                slider.style.cursor = 'grab';
+            window.addEventListener('mouseup', () => {
+                if (isDown) {
+                    isDown = false;
+                    slider.style.cursor = 'grab';
+                    setTimeout(() => { isMoved = false; }, 60);
+                }
             });
-            slider.addEventListener('mouseup', () => {
+            slider.addEventListener('mouseleave', () => {
                 isDown = false;
                 slider.style.cursor = 'grab';
             });
@@ -265,11 +273,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (!isDown) return;
                 e.preventDefault();
                 const x = e.pageX - slider.offsetLeft;
-                const walk = (x - startX) * 2; 
+                const walk = (x - startX) * 2;
+                if (Math.abs(walk) > 4) isMoved = true;
                 slider.scrollLeft = scrollLeft - walk;
+            });
+
+            // Prevent modal click when user was dragging
+            slider.querySelectorAll('[data-type="modal"]').forEach(item => {
+                item.addEventListener('click', (e) => {
+                    if (isMoved) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
+                }, true);
             });
         }
         
+        const popupRight = document.querySelector('.int-popup-right');
+        const popupTrackEl = document.querySelector('.popup-track');
+        if (popupRight) enableDragScroll(popupRight);
+        if (popupTrackEl) enableDragScroll(popupTrackEl);
+
         const detailSlider = document.querySelector('.int-detail-gallery');
         if (detailSlider) enableDragScroll(detailSlider);
 
@@ -512,6 +536,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
 
 
 
