@@ -2273,64 +2273,7 @@ h3.banner-title {
         transform: none !important;
     }
 
-    /* 2. Mobile App (목업 배경??�??�스???�버?�이) */
-    .sticky-mobile-container {
-        flex-direction: column !important;
     }
-    .mobile-mockup-wrapper {
-        position: sticky;
-        top: 20vh;
-        height: 50vh;
-        z-index: 0;
-        opacity: 0.2; /* 배경?�로 ?�리�?처리 */
-        pointer-events: none;
-    }
-    .device-frame {
-        width: 240px;
-        height: 480px;
-        border-width: 8px;
-    }
-    .mobile-text-wrapper {
-        position: relative;
-        z-index: 1;
-        padding: 10vh 5vw 30vh 5vw;
-    }
-    .mobile-step {
-        height: 70vh;
-        align-items: center;
-        text-align: center;
-        text-shadow: 0 4px 20px rgba(0,0,0,0.8);
-    }
-    .mobile-step h3 { font-size: 2rem; }
-
-    /* Design System Mobile */
-    .ds-grid {
-        grid-template-columns: 1fr;
-    }
-    .ds-card {
-        padding: 2rem;
-    }
-    .ds-typo {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-    }
-    .color-chips {
-        flex-direction: column;
-    }
-    .color-chip {
-        height: 100px;
-    }
-
-    /* 3. Website (모니??베젤 축소) */
-    .monitor-frame {
-        border-width: 8px !important;
-        border-bottom-width: 16px !important;
-        border-radius: 8px 8px 0 0 !important;
-        aspect-ratio: auto !important;
-        height: 60vh;
-    }
-}
 /* ==========================================================================
    Graphics & More - Interaction Layouts
    ========================================================================== */
@@ -3722,15 +3665,14 @@ body, a, button {
     font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, 'Noto Sans KR', sans-serif !important;
 }
 
-
-
-
-
-
-
 /* ==========================================================================
    📱 COMPREHENSIVE RESPONSIVE STYLES (TABLET & MOBILE)
    ========================================================================== */
+
+/* Swipe Hint Indicator (Hidden on desktop, shown on mobile) */
+.mobile-swipe-hint {
+    display: none;
+}
 
 @media (max-width: 1024px) {
     /* 1. Global Container */
@@ -3798,11 +3740,13 @@ body, a, button {
     /* 5. Detail Pages */
     .int-detail-gallery {
         flex-direction: column !important;
+        align-items: center !important;
         gap: 2rem !important;
     }
     .int-detail-item {
         flex: none !important;
         width: 100% !important;
+        max-width: 600px !important;
     }
     .int-detail-item img {
         height: 420px !important;
@@ -3975,7 +3919,7 @@ body, a, button {
         transform: none !important;
     }
 
-    /* 5. Mobile App (Family Space) */
+    /* 5. Mobile App (Family Space) - Centered mockup & Clean text */
     .mobile-section-intro {
         padding: 5rem 5vw 3rem 5vw !important;
     }
@@ -3987,13 +3931,22 @@ body, a, button {
         gap: 2rem !important;
     }
     .sticky-mobile-container {
+        display: flex !important;
         flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
     }
     .mobile-mockup-wrapper {
         position: relative !important;
         top: auto !important;
         height: auto !important;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
         padding: 2rem 0 !important;
+        margin: 0 auto !important;
         z-index: 1 !important;
         opacity: 1 !important;
     }
@@ -4003,19 +3956,24 @@ body, a, button {
         max-width: 80vw !important;
         border-width: 8px !important;
         border-radius: 28px !important;
-        margin: 0 auto;
+        margin: 0 auto !important;
     }
     .mobile-text-wrapper {
         padding: 2rem 5vw !important;
+        width: 100% !important;
     }
     .mobile-step {
         height: auto !important;
         min-height: auto !important;
         padding: 2rem 0 3rem 0 !important;
-        text-align: center;
+        text-align: center !important;
+        text-shadow: none !important;
+    }
+    .mobile-step * {
+        text-shadow: none !important;
     }
 
-    /* 6. Case Studies & Archives */
+    /* 6. Case Studies & Archives - Horizontal Color Chips */
     .section-casestudy {
         padding: 4rem 0 !important;
     }
@@ -4025,15 +3983,59 @@ body, a, button {
     .real-monitor-mockup {
         width: 100% !important;
     }
+    .case-info .color-chips,
+    .color-chips {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        gap: 0.6rem !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        width: 100% !important;
+    }
+    .case-info .color-chip,
+    .color-chip {
+        width: 52px !important;
+        height: 52px !important;
+        border-radius: 50% !important;
+        font-size: 0.68rem !important;
+        font-weight: 700 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex: none !important;
+    }
     .archive-grid {
         grid-template-columns: 1fr !important;
         gap: 1.5rem !important;
     }
 
-    /* 7. Graphics Section (Popup, Banners, Detail Pages) */
+    /* 7. Graphics Section (Popup & Poster Swipe, Scaled Butterfly, Smaller Banners, Centered Detail Pages) */
     .section-others {
         padding: 4rem 0 !important;
     }
+    
+    /* 7.1 Scaled Down Butterfly on Graphics */
+    .floating-graphic,
+    .graphic-1,
+    .graphic-2,
+    .graphic-3,
+    .graphic-7 {
+        width: 60px !important;
+        max-width: 60px !important;
+        height: auto !important;
+        opacity: 0.65 !important;
+    }
+    .graphic-3 {
+        top: -15px !important;
+        left: 3% !important;
+    }
+    .graphic-7 {
+        top: -15px !important;
+        right: 3% !important;
+    }
+
+    /* 7.2 Popup & Poster Swipeable Carousel & Hint */
     .int-popup-container {
         flex-direction: column !important;
         height: auto !important;
@@ -4044,6 +4046,29 @@ body, a, button {
         padding: 0 5vw !important;
         margin-bottom: 1.5rem !important;
         text-align: center;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    .mobile-swipe-hint {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 20px;
+        padding: 0.45rem 1.1rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #fff;
+        margin-top: 1.2rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        animation: pulseHint 2s infinite ease-in-out;
+    }
+    @keyframes pulseHint {
+        0%, 100% { transform: scale(1); opacity: 0.9; }
+        50% { transform: scale(1.03); opacity: 1; }
     }
     .popup-track {
         display: flex !important;
@@ -4059,12 +4084,66 @@ body, a, button {
         display: none;
     }
     .popup-item {
-        width: 240px !important;
-        height: 350px !important;
+        width: 220px !important;
+        height: 330px !important;
         flex-shrink: 0 !important;
     }
+
+    /* 7.3 Promotional Banners (Smaller & Compact on Mobile) */
+    .int-banner-section {
+        padding: 4rem 0 !important;
+    }
+    .marquee-item {
+        width: 220px !important;
+        max-width: 220px !important;
+        margin: 0 0.45rem !important;
+        border-radius: 8px !important;
+    }
+    .marquee-item img {
+        height: auto !important;
+        max-height: 75px !important;
+        object-fit: cover !important;
+    }
+    .marquee-wrapper {
+        padding: 0.2rem 0 !important;
+    }
+
+    /* 7.4 Detail Pages (Centered Gallery on Mobile) */
+    .int-detail-section {
+        padding: 4rem 0 !important;
+    }
+    .int-detail-gallery {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        padding: 0 5vw !important;
+        margin: 0 auto !important;
+        gap: 2rem !important;
+    }
+    .int-detail-item {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        max-width: 400px !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
+        text-align: center !important;
+        padding: 1rem !important;
+    }
     .int-detail-item img {
-        height: 300px !important;
+        width: 100% !important;
+        height: 280px !important;
+        object-fit: cover !important;
+        object-position: top !important;
+        border-radius: 12px !important;
+    }
+    .int-detail-item .detail-info {
+        text-align: center !important;
+        width: 100% !important;
+        margin-top: 1rem !important;
     }
 
     /* 8. Contact Section */
