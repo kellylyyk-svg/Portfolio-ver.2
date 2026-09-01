@@ -3594,11 +3594,12 @@ body, a, button {
     font-size: clamp(1rem, 1.6vh, 1.15rem);
     color: #111 !important;
     display: block;
-    margin-bottom: 0.3vh;
+    margin-bottom: 2px;
+    line-height: 1.2;
 }
 .exp-text {
     font-size: clamp(0.9rem, 1.4vh, 1rem);
-    line-height: 1.4;
+    line-height: 1.35;
     color: #444 !important;
 }
 
@@ -4202,5 +4203,6 @@ body, a, button {
 .popup-track::-webkit-scrollbar {
     display: none;
 }
+
 
 
