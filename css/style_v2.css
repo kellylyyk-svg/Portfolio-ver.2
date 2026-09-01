@@ -4210,3 +4210,64 @@ body, a, button {
 
 
 
+
+
+/* Color Chips Clean Swatches & Hover Tooltip */
+.case-info .color-chips,
+.color-chips {
+    display: flex !important;
+    gap: 0.65rem !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+}
+.case-info .color-chip,
+.color-chip {
+    position: relative !important;
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0 !important;
+    color: transparent !important;
+    flex: none !important;
+}
+.case-info .color-chip:hover,
+.color-chip:hover {
+    transform: translateY(-3px) scale(1.15) !important;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18) !important;
+    z-index: 10;
+}
+.case-info .color-chip::after,
+.color-chip::after {
+    content: attr(data-hex);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: rgba(15, 23, 42, 0.92);
+    backdrop-filter: blur(8px);
+    color: #ffffff !important;
+    padding: 0.25rem 0.55rem;
+    border-radius: 6px;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 20;
+}
+.case-info .color-chip:hover::after,
+.color-chip:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
